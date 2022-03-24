@@ -8,5 +8,10 @@
 
 {% block content %}
     <h1>URL Form</h1>
-    <p>It's the form</p>
+    {% if sendAllow %} Your URL has been transmitted {% endif %}
+    <form action="http://127.0.0.1:8000/urlRedir/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+    </form>
 {% endblock %}
