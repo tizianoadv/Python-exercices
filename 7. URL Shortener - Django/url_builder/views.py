@@ -8,6 +8,7 @@ import random
 import string
 
 def index(request):
+
     return render(request, 'url_builder/index.html')
 
 def urlForm(request):
@@ -20,8 +21,6 @@ def urlForm(request):
         form = URLForm(request.POST)
     
         if form.is_valid():
-            username = form.cleaned_data['username']
-            url = form.cleaned_data['url']
             sendAllow = True
 
     return render(request, 'url_builder/urlForm.html', context)
