@@ -8,4 +8,4 @@ class TinyURL(models.Model):
     numberAccess = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.shortcutCode
+        return self.initUrl + " to " + self.shortcutCode + " (" + self.numberAccess + " access)"

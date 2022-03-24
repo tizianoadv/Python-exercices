@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
-    {% block content %}
+    {% block title %}
     <head>
-        <title>Index</title>
+        <title>URLs shortener</title>
     </head>
+    {% endblock %}
 
     <body>
-        <h1>Index</h1>
-        
-        <p>It's the index</p>
-        
+        {% block content %}
+        <h1>URLs shortener</h1>
+        <p><a href="/urlForm/">Get URL shortcut</a>
+
+        <p>List of URLs shortcuts:</p>
+        {% endblock %}
     </body>
-    {% endblock %}
+    
 </html>
