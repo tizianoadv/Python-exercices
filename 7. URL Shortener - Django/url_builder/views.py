@@ -8,8 +8,38 @@ import random
 import string
 
 def index(request):
+    i=0
 
-    return render(request, 'url_builder/index.html')
+    context = {}
+
+    # Get all URLs stored in database
+    querySet = TinyURL.objects.order_by('-numberAccess').values()
+    listURL = list(querySet.values('url'))
+    listCode = list(querySet.values('shortcutCode'))
+    listAccess = list(querySet.values('numberAccess'))
+
+    # URlsto context(=dict)
+    i=0
+    while i < len(listURL) and i < 5:
+        key = "url" + str(i)
+        context[key] = listURL[i]['url']
+        i+=1
+
+    # Codes to context(=dict)
+    i=0
+    while i < len(listCode) and i < 5:
+        key = "new_url" + str(i)
+        context[key] = "http://shtURL/" + listCode[i]['shortcutCode']
+        i+=1
+
+    # Accesses to context(=dict)
+    i=0
+    while i < len(listAccess) and i < 5:
+        key = "access" + str(i)
+        context[key] = listAccess[i]['numberAccess']
+        i+=1
+
+    return render(request, 'url_builder/index.html', context)
 
 def urlForm(request):
     

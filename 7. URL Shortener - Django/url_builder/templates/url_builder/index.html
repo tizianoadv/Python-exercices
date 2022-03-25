@@ -11,7 +11,25 @@
         <h1>URLs shortener</h1>
         <p><a href="/urlForm/">Get URL shortcut</a>
 
-        <p>List of URLs shortcuts:</p>
+        <p>List of most common URLs shortcuts:</p>
+        <table>
+            {% if url0 %}
+                <tr><td><i>FROM:</i> <b>{{ url0|truncatechars:100 }}</b></td> <td><i>TO:</i>  <b><a href="{{url0}}">{{new_url0}}<a/></b> (Accesses: {{access0}})</td></tr>
+            {% endif %}
+            {% if url1 %}
+                <tr><td><i>FROM:</i> <b>{{ url1|truncatechars:100 }}</b></td> <td><i>TO:</i>  <b><a href="{{url1}}">{{new_url1}}<a/></b> (Accesses: {{access1}})</td></tr>
+            {% endif %}
+            {% if url2 %}
+                <tr><td><i>FROM:</i> <b>{{ url2|truncatechars:100}}</b></td>  <td><i>TO:</i>  <b><a href="{{url2}}">{{new_url2}}<a/></b> (Accesses: {{access2}})</td></tr>
+            {% endif %}
+            {% if url3 %}
+                <tr><td><i>FROM:</i> <b>{{ url3|truncatechars:100}}</b></td>  <td><i>TO:</i>  <b><a href="{{ url3 }}">{{new_url3}}<a/></b> (Accesses: {{access3}})</td></tr>
+            {% endif %}
+            {% if url4 %}
+                <tr><td><i>FROM:</i> <b>{{ url4|truncatechars:100}}</b></td>  <td><i>TO:</i>  <b><a href="{{ url4 }}">{{new_url4}}<a/></b> (Accesses: {{access4}})</td></tr>
+            {% endif %}
+                </table>    
+        
         {% endblock %}
     </body>
     
